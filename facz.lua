@@ -1,7 +1,7 @@
 local PLACE_ID = 109983668079237
 local FIREBASE_URL = "https://olaaa-dc667-default-rtdb.firebaseio.com/jobid.json"
 
-local usuariosPermitidos = {"unitystore", "stealbrainrotaltt6", "outroNick"} -- Coloque os nicks permitidos aqui
+local usuariosPermitidos = {"unitystore", "stealbrainrotaltt6", "outroNick"}
 local LocalPlayer = game.Players.LocalPlayer
 
 -- Verifica se o jogador está na lista
@@ -24,7 +24,7 @@ ScreenGui.Name = "UnitySniperGui"
 
 local Frame = Instance.new("Frame", ScreenGui)
 Frame.Size = UDim2.new(0, 300, 0, 150)
-Frame.Position = UDim2.new(0.5, -150, 0.3, -75)
+Frame.Position = UDim2.new(0.5, -150, 0.2, -75) -- MAIS EM CIMA
 Frame.BackgroundColor3 = Color3.new(1, 1, 1)
 Frame.Active = true
 Frame.Draggable = true
