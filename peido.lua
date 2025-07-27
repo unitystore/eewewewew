@@ -1,5 +1,5 @@
 local PLACE_ID = 109983668079237
-local FIREBASE_URL = "https://olaaa-dc667-default-rtdb.firebaseio.com/jobid.json" -- Troque para sua URL real
+local FIREBASE_URL = "https://olaaa-dc667-default-rtdb.firebaseio.com/jobid.json" -- Sua URL Firebase
 
 -- Gui
 local ScreenGui = Instance.new("ScreenGui", game.CoreGui)
@@ -45,37 +45,43 @@ Dropdown.MouseButton1Click:Connect(function()
     end
 end)
 
--- Função para converter "5.2M/s" para 5.2
 local function parseMoney(text)
     local n = text:match("([%d%.]+)M/s")
     return tonumber(n)
 end
 
--- Verificador de servidor
+local ultimoJobId = nil
 local rodando = false
+
 AcharBtn.MouseButton1Click:Connect(function()
     if rodando then return end
     rodando = true
     AcharBtn.Text = "Procurando..."
-    
+    Frame.Visible = false -- Esconde o menu ao clicar
+
     spawn(function()
         while rodando do
-            local s, res = pcall(function()
-                return game:HttpGet(FIREBASE_URL)
+            local success, res = pcall(function()
+                return game.HttpGet(game, FIREBASE_URL)
             end)
-            
-            if s and res then
+
+            if success and res then
                 local data = game:GetService("HttpService"):JSONDecode(res)
                 local jobid = data.job_id_mobile
                 local money = parseMoney(data.money_per_sec or "0M/s")
 
-                if selecionado and jobid and money and money >= selecionado then
-                    rodando = false
-                    AcharBtn.Text = "Achar Servidor"
-                    game:GetService("TeleportService"):TeleportToPlaceInstance(PLACE_ID, jobid, game.Players.LocalPlayer)
+                if jobid and jobid ~= "" and jobid ~= ultimoJobId then
+                    if selecionado and money and money >= selecionado then
+                        ultimoJobId = jobid
+                        print("Novo JobID detectado:", jobid, "Money/s:", money)
+                        game:GetService("TeleportService"):TeleportToPlaceInstance(PLACE_ID, jobid, game.Players.LocalPlayer)
+                        -- Não para o loop, continua verificando
+                    end
                 end
+            else
+                warn("Erro ao acessar Firebase")
             end
-            
+
             wait(0.1)
         end
     end)
