@@ -1,7 +1,7 @@
 local PLACE_ID = 109983668079237
 local FIREBASE_URL = "https://olaaa-dc667-default-rtdb.firebaseio.com/job.json"
 
-local usuariosPermitidos = {"stealbraintoaltt6"}
+local usuariosPermitidos = {"stealbrainrotaltt6"}
 local LocalPlayer = game.Players.LocalPlayer
 
 -- Verifica se o jogador está na lista
