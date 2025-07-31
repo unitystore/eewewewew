@@ -5,18 +5,6 @@ local usuariosPermitidos = {"luuccasgame", "jsjsjjfjnfia1"}
 local LocalPlayer = game.Players.LocalPlayer
 
 -- Verifica se o jogador está na lista
-local permitido = false
-for _, nome in ipairs(usuariosPermitidos) do
-    if nome:lower() == LocalPlayer.Name:lower() then
-        permitido = true
-        break
-    end
-end
-
-if not permitido then
-    LocalPlayer:Kick("O seu nick não está registrado")
-    return
-end
 
 -- Interface
 local ScreenGui = Instance.new("ScreenGui", game.CoreGui)
