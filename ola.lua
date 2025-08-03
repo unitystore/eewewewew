@@ -32,7 +32,7 @@ ModoAlternarBtn.BackgroundColor3 = Color3.fromRGB(100, 100, 255)
 ModoAlternarBtn.Text = "Pesquisar por Nome"
 
 local listaMoney = {"1M/s", "2M/s", "3M/s", "4M/s", "5M/s", "6M/s", "7M/s", "8M/s", "9M/s", "10M/s"}
-local listaNomes = {"Orcalero Orcala", "Ladrão Supimpa", "Steve Jobs", "João Brainrotado"}
+local listaNomes = {"Orcalero Orcala", "Ladrão Supimpa", "Steve Jobs", "João Brainrotado", "La Vacca Saturno Saturnita"}
 
 local selecionado = 1
 local modoPesquisaPorNome = false
