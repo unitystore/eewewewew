@@ -1,5 +1,5 @@
 local PLACE_ID = 109983668079237
-local FIREBASE_URL = "https://olaaa-dc667-default-rtdb.firebaseio.com/job.json"
+local FIREBASE_URL = "https://olaaa-dc667-default-rtdb.firebaseio.com/bbb.json"
 
 local LocalPlayer = game.Players.LocalPlayer
 
